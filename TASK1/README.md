@@ -20,7 +20,7 @@ The LAMP stack consists of:
 
 The Ubuntu server was accessed through AWS EC2 Instance Connect.
 
-![AWS EC2 Ubuntu Server](image-1.png)
+![AWS EC2 Ubuntu Server](69B952A0-73DC-4C41-BF3F-02B7B196EDA4.png)
 
 
 # STEP 1 - INSTALLING THE APACHE WEB SERVER
@@ -41,7 +41,8 @@ After installation, the Apache service was checked to verify that it was running
 
 Apache was successfully installed and configured as the web server for the project.
 
-![Apache Web Server Status](image-2.png)
+![Apache Web Server](B15989DA-9174-4CB2-9E09-3B7031416389.png)
+
 
 ## TESTING APACHE FROM THE INTERNET
 
@@ -51,29 +52,34 @@ The EC2 security group was configured to allow HTTP traffic through port 80.
 
 The Apache server was then tested from a web browser using the public IP address of the EC2 instance.
 
-    http://13.51.163.24:80
-
 The successful browser response confirmed that Apache was serving the project web page.
 
-![Apache Website Test](image-3.png)
 
 # STEP 2 - INSTALLING MYSQL
 
 MySQL was installed as the database component of the LAMP stack.
 
 The installation was performed using:
-sudo apt install mysql-server
+
+    sudo apt install mysql-server
 
 After installation, the MySQL server was configured and tested.
 
 MySQL was accessed through the MySQL console.
-sudo mysql -p
+
+    sudo mysql -p
+
 The MySQL service was also verified to ensure that it was running correctly.
 
-SECURING MYSQL
+![MySQL Server Running](C5474DF8-5236-4514-945A-0B9E10C2363C.png)
+
+
+## SECURING MYSQL
 
 The MySQL security installation script was executed to improve the security of the database server.
-sudo mysql_secure_installation
+
+    sudo mysql_secure_installation
+
 During the configuration process:
 
 * Password validation was configured.
@@ -84,47 +90,72 @@ During the configuration process:
 
 The security configuration was completed successfully.
 
+
 # STEP 3 - INSTALLING PHP
 
 PHP was installed to provide server-side processing for the website and allow PHP applications to communicate with MySQL.
 
 The required PHP packages were installed using:
-sudo apt install php libapache2-mod-php php-mysql
+
+    sudo apt install php libapache2-mod-php php-mysql
+
 The installed PHP version was verified using:
-php -v
+
+    php -v
+
 The server was running PHP 8.3.6.
 
 PHP was successfully installed and integrated with Apache.
 
+![PHP Test](A4C62BF0-1041-4E86-8CD3-2D4FF1A7AC89.png)
+
+
 # STEP 4 - CONFIGURING APACHE
 
 A dedicated web root directory was created for the project.
-sudo mkdir /var/www/projectlamp
+
+    sudo mkdir /var/www/projectlamp
+
 Ownership of the directory was assigned to the current user.
-sudo chown -R $USER:$USER /var/www/projectlamp
+
+    sudo chown -R $USER:$USER /var/www/projectlamp
+
 An Apache virtual host configuration was created for the Project LAMP website.
 
 The configuration used the following structure:
-<VirtualHost *:80>
-    ServerName projectlamp
-    ServerAlias www.projectlamp
-    ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/projectlamp
 
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
+    <VirtualHost *:80>
+        ServerName projectlamp
+        ServerAlias www.projectlamp
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/projectlamp
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
+
 The project site was enabled:
-sudo a2ensite projectlamp
+
+    sudo a2ensite projectlamp
+
 The default Apache website was disabled:
-sudo a2dissite 000-default
+
+    sudo a2dissite 000-default
+
 The Apache configuration was tested for syntax errors:
-sudo apache2ctl configtest
+
+    sudo apache2ctl configtest
+
 The configuration returned:
-Syntax OK
+
+    Syntax OK
+
 Apache was then reloaded:
-sudo systemctl reload apache2
-The Apache configuration was successfully applied
+
+    sudo systemctl reload apache2
+
+The Apache configuration was successfully applied.
+
 
 # STEP 5 - CONFIGURING DIRECTORY INDEX
 
@@ -138,7 +169,7 @@ The DirectoryIndex order was configured with:
 
     DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
 
-![Apache DirectoryIndex Configuration](image-5.png)
+![Apache DirectoryIndex Configuration](F17E6423-A821-41E5-A3E1-1B6D42CB9FC1.png)
 
 
 # STEP 6 - TESTING PHP
@@ -157,14 +188,17 @@ The PHP information page confirmed that PHP was successfully being processed by 
 
 After testing, the PHP information file was removed because it contains detailed information about the server and PHP environment.
 
+
 # STEP 7 - FINAL WEBSITE TEST
 
 The Project LAMP website was accessed through the EC2 public IP address.
 
-The browser successfully displayed:
+The browser successfully displayed the Project LAMP website.
 
-![Project LAMP Website](image-6.png)
+![Project LAMP Website](5EC77E2E-F8EB-4209-9C94-8C877C0CCB46.png)
+
 This confirmed that the Apache web server and the configured Project LAMP virtual host were working successfully.
+
 
 # CONCLUSION
 
@@ -184,4 +218,3 @@ The website was successfully accessed through the EC2 public IP address, confirm
 The PHP environment was also tested successfully.
 
 The Project 1 LAMP web stack implementation was therefore completed and verified.
-
