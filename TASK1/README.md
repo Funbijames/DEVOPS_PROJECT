@@ -29,26 +29,35 @@ Apache is the web server component of the LAMP stack. It is responsible for rece
 
 First, the server's package index was updated.
 
-```bash
-sudo apt update
+    sudo apt update
+
 Apache was then installed using:
 
-```bash
-sudo apt install apache2
+    sudo apt install apache2
+
 After installation, the Apache service was checked to verify that it was running.
-sudo systemctl status apache2
+
+    sudo systemctl status apache2
+
 Apache was successfully installed and configured as the web server for the project.
-TESTING APACHE FROM THE INTERNET
+
+![Apache Web Server Status](image-2.png)
+
+## TESTING APACHE FROM THE INTERNET
 
 TCP port 80 is the default port used by web browsers to access HTTP web pages.
 
 The EC2 security group was configured to allow HTTP traffic through port 80.
 
 The Apache server was then tested from a web browser using the public IP address of the EC2 instance.
-http://13.51.163.24:80
+
+    http://13.51.163.24:80
+
 The successful browser response confirmed that Apache was serving the project web page.
 
-STEP 2 - INSTALLING MYSQL
+![Apache Website Test](image-3.png)
+
+# STEP 2 - INSTALLING MYSQL
 
 MySQL was installed as the database component of the LAMP stack.
 
@@ -75,7 +84,7 @@ During the configuration process:
 
 The security configuration was completed successfully.
 
-STEP 3 - INSTALLING PHP
+# STEP 3 - INSTALLING PHP
 
 PHP was installed to provide server-side processing for the website and allow PHP applications to communicate with MySQL.
 
@@ -87,7 +96,7 @@ The server was running PHP 8.3.6.
 
 PHP was successfully installed and integrated with Apache.
 
-STEP 4 - CONFIGURING APACHE
+# STEP 4 - CONFIGURING APACHE
 
 A dedicated web root directory was created for the project.
 sudo mkdir /var/www/projectlamp
@@ -115,40 +124,49 @@ The configuration returned:
 Syntax OK
 Apache was then reloaded:
 sudo systemctl reload apache2
-The Apache configuration was successfully applied.
+The Apache configuration was successfully applied
 
-STEP 5 - CONFIGURING DIRECTORY INDEX
+# STEP 5 - CONFIGURING DIRECTORY INDEX
 
 The Apache DirectoryIndex configuration was adjusted so that PHP index files could be prioritized.
-The configuration file was:
-/etc/apache2/mods-enabled/dir.conf
-The DirectoryIndex order was configured with:
-DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
 
-STEP 6 - TESTING PHP
+The configuration file was:
+
+    /etc/apache2/mods-enabled/dir.conf
+
+The DirectoryIndex order was configured with:
+
+    DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+
+![Apache DirectoryIndex Configuration](image-5.png)
+
+
+# STEP 6 - TESTING PHP
 
 A PHP test file was created in the project web directory to verify that Apache could process PHP.
 
 The PHP test contained:
-<?php
-phpinfo();
-?>
-The PHP page was accessed through the web browser using the server’s public IP address.
+
+    <?php
+    phpinfo();
+    ?>
+
+The PHP page was accessed through the web browser using the server's public IP address.
 
 The PHP information page confirmed that PHP was successfully being processed by the web server.
 
 After testing, the PHP information file was removed because it contains detailed information about the server and PHP environment.
 
-STEP 7 - FINAL WEBSITE TEST
+# STEP 7 - FINAL WEBSITE TEST
 
 The Project LAMP website was accessed through the EC2 public IP address.
 
 The browser successfully displayed:
 
-Project LAMP is working!
+![Project LAMP Website](image-6.png)
 This confirmed that the Apache web server and the configured Project LAMP virtual host were working successfully.
 
-CONCLUSION
+# CONCLUSION
 
 The LAMP stack was successfully implemented on an AWS EC2 Ubuntu server.
 
