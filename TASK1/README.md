@@ -20,7 +20,7 @@ The LAMP stack consists of:
 
 The Ubuntu server was accessed through AWS EC2 Instance Connect.
 
-![AWS EC2 Ubuntu Server](69B952A0-73DC-4C41-BF3F-02B7B196EDA4.png)
+![AWS EC2 Ubuntu Server](IMG_3869.jpeg)
 
 # STEP 1 - INSTALLING THE APACHE WEB SERVER
 
@@ -40,7 +40,7 @@ After installation, the Apache service was checked using:
 
 Apache was successfully installed and configured as the web server for the project.
 
-![Apache Web Server](B15989DA-9174-4CB2-9E09-3B7031416389.png)
+![Apache Web Server](IMG_3866.jpeg)
 
 ## TESTING APACHE FROM THE INTERNET
 
@@ -66,7 +66,7 @@ After installation, MySQL was accessed through the MySQL console using:
 
 The MySQL service was also verified to ensure that it was running correctly.
 
-![MySQL Server Running](C5474DF8-5236-4514-945A-0B9E10C2363C.png)
+![MySQL Server](IMG_3871.jpeg)
 
 ## SECURING MYSQL
 
@@ -100,7 +100,7 @@ The server was running PHP 8.3.6.
 
 PHP was successfully installed and integrated with Apache.
 
-![PHP Test](A4C62BF0-1041-4E86-8CD3-2D4FF1A7AC89.png)
+![PHP Test](IMG_3872.jpeg)
 
 # STEP 4 - CONFIGURING APACHE
 
@@ -154,7 +154,7 @@ The DirectoryIndex order was configured with:
 
 This configuration allows Apache to serve index.php as the default page when it is present.
 
-![Apache DirectoryIndex Configuration](F17E6423-A821-41E5-A3E1-1B6D42CB9FC1.png)
+![DirectoryIndex Configuration](IMG_3873.jpeg)
 
 # STEP 6 - TESTING PHP
 
@@ -178,7 +178,7 @@ The Project LAMP website was accessed through the EC2 public IP address.
 
 The browser successfully displayed the Project LAMP website.
 
-![Project LAMP Website](5EC77E2E-F8EB-4209-9C94-8C877C0CCB46.png)
+![Final Project LAMP Page](IMG_3867.jpeg)
 
 The successful response confirmed that the Apache web server and the configured Project LAMP virtual host were working successfully.
 
